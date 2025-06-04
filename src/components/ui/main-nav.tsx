@@ -43,11 +43,12 @@ const posts: { title: string; href: string; description: string }[] = [
   },
 ];
 
-export default function MainNav() {
+export default function MainNav({className}: {className? : string}) {
   return (
     <div
       className={cn(
-        "flex flex-col items-start justify-start md:flex-row md:items-center md:justify-between pt-10 z-50 "
+        "flex flex-col items-start justify-start md:flex-row md:items-center md:justify-between pt-10 z-50",
+        className
       )}
     >
       <Link href={"/"}>
@@ -191,14 +192,14 @@ export default function MainNav() {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem> */}
-          <div className="flex items-center justify-between w-20">
+        </NavigationMenuList>
+      </NavigationMenu>
+         <div className="flex items-center justify-between w-20">
             <ModeToggle />
             <Link href={'/rss'} className="h-6 w-6">
            <Icons.rss /> 
             </Link>
           </div>
-        </NavigationMenuList>
-      </NavigationMenu>
     </div>
   );
 }
