@@ -2,8 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react";
-
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,6 +12,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { Icons } from "./icons";
+import { ModeToggle } from "./mode-toggle";
 
 const posts: { title: string; href: string; description: string }[] = [
   {
@@ -45,16 +45,20 @@ const posts: { title: string; href: string; description: string }[] = [
 
 export default function MainNav() {
   return (
-    <div className={cn("flex flex-col items-start justify-start md:flex-row md:items-center md:justify-between pt-10 z-50 ")}>
+    <div
+      className={cn(
+        "flex flex-col items-start justify-start md:flex-row md:items-center md:justify-between pt-10 z-50 "
+      )}
+    >
       <Link href={"/"}>
-        <div>
-          {/* Icon */}
+        <div className="flex items-center justify-between w-32">
+          <Icons.logo className="h-6 w-6" />
           <p>LynxPounce</p>
         </div>
       </Link>
       <NavigationMenu viewport={false}>
         <NavigationMenuList>
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <NavigationMenuTrigger>Home</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -84,7 +88,7 @@ export default function MainNav() {
                 </ListItem>
               </ul>
             </NavigationMenuContent>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
           <NavigationMenuItem>
             <NavigationMenuTrigger>Posts</NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -142,7 +146,7 @@ export default function MainNav() {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[200px] gap-4">
@@ -159,8 +163,8 @@ export default function MainNav() {
                 </li>
               </ul>
             </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
+          </NavigationMenuItem> */}
+          {/* <NavigationMenuItem>
             <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[200px] gap-4">
@@ -186,7 +190,13 @@ export default function MainNav() {
                 </li>
               </ul>
             </NavigationMenuContent>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
+          <div className="flex items-center justify-between w-20">
+            <ModeToggle />
+            <Link href={'/rss'} className="h-6 w-6">
+           <Icons.rss /> 
+            </Link>
+          </div>
         </NavigationMenuList>
       </NavigationMenu>
     </div>
