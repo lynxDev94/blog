@@ -28,3 +28,4 @@ model Subscriber {
   email         String
   is_subscribed Boolean @default(true)
 }
+
