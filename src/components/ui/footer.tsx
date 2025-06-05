@@ -2,6 +2,8 @@ import React from "react";
 import { POSTS } from "@/lib/constants";
 import { Icons } from "./icons";
 import Link from "next/link";
+import { Input } from "./input";
+import { Button } from "./button";
 
 export default function Footer() {
   return (
@@ -41,12 +43,65 @@ export default function Footer() {
               {POSTS.map((post) => {
                 return (
                   <li key={post.title}>
-                    <Link href={post.href} className="text-gray-500">{post.title}</Link>
+                    <Link
+                      href={post.href}
+                      className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+                    >
+                      {post.title}
+                    </Link>
                   </li>
                 );
               })}
             </ul>
           </div>
+          <div className="space-y-4">
+            <h3 className="text-md font-semibold">Links</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="mailto:myEmail@gmail.com"
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+                >
+                  Contact
+                </a>
+              </li>
+              <li>
+                <Link
+                  href={"/terms-of-services"}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+                >
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"/privacy-policy"}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-md font-semibold">Newsletter</h3>
+            <p className="text-gray-500 dark:text-gray-400 text-sm">
+              Subscribe to our newsletter
+            </p>
+            <form>
+              <div className="flex space-x-2">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1"
+                />
+                <Button>Subscribe</Button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="mt-8 border-t border-gray-200 pt-4 text-center text-xs text-gray-500 dark:text-gray-400 dark:border-gray-700">
+          &copy; 2025 LynxPounce. All rights reserved.
         </div>
       </div>
     </footer>

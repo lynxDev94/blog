@@ -11,7 +11,6 @@ export default function Home() {
       <main className="flex flex-col items-start justify-evenly mt-16 md:flex-row">
         <div>
           <LatestPosts />
-           <LatestPosts />
         </div>
        <div className="h-screen">
          <div>
