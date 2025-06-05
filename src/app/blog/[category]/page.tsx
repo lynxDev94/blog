@@ -17,7 +17,7 @@ export default async function Page({
     (post) => post.metaData.category === category
   );
 
-  if (!posts) {
+  if (!posts.length) {
     notFound();
   }
   return (
@@ -45,7 +45,7 @@ export default async function Page({
             .map((post) => (
               <Link
                 key={post.metaData.title}
-                href={`blog/${post.metaData.category}/${post.slug}`}
+                href={`${post.metaData.category}/${post.slug}`}
               >
                 <CardCategory
                   title={post.metaData.title}

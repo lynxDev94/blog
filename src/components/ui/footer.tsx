@@ -86,7 +86,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-md font-semibold">Newsletter</h3>
             <p className="text-gray-500 dark:text-gray-400 text-sm">
-              Subscribe to our newsletter
+              Will be added soon! 
             </p>
             <form>
               <div className="flex space-x-2">
@@ -95,7 +95,7 @@ export default function Footer() {
                   placeholder="Enter your email"
                   className="flex-1"
                 />
-                <Button>Subscribe</Button>
+                <Button disabled>Subscribe</Button>
               </div>
             </form>
           </div>
