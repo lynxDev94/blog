@@ -4,16 +4,17 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import CardCategory from "@/components/ui/CardCategory";
+import Header from "@/components/ui/Header";
 
 export default async function Page({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }) {
-  const { category } = await params;
+  const { category } = await params; 
 
   const posts = getBlogPosts().filter(
-    (post) => post.metaData.category == category
+    (post) => post.metaData.category === category
   );
 
   if (!posts) {
@@ -21,6 +22,13 @@ export default async function Page({
   }
   return (
     <>
+      <Header>
+        <Container>
+          <h1 className="title font-semibold text-2xl tracking-wider mt-4 uppercase">
+            {posts[0]?.metaData.category}
+          </h1>
+        </Container>
+      </Header>
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
           {posts
