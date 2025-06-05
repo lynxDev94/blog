@@ -6,11 +6,28 @@ import Container from "@/components/ui/Container";
 import { BreadCrumbMain } from "@/components/ui/BreadcrumbMain";
 import { CustomMDX } from "@/components/CustomMDX";
 
-function Page({ params }: { params: { category: string; slug: string } }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
+// this makes it statically generated
+export async function generateStaticParams() {
+  const posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+async function Page({
+  params,
+}: {
+  params: Promise<{ category: string; slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const post = getBlogPosts().find((post) => post.slug === slug);
+  console.log(post);
   if (!post) {
     notFound();
   }
+
   return (
     <>
       <Header>
@@ -28,7 +45,7 @@ function Page({ params }: { params: { category: string; slug: string } }) {
       </Header>
       <Container>
         <article className="prose">
-            <CustomMDX source={post.content}/>
+          <CustomMDX source={post.content} />
         </article>
       </Container>
     </>
