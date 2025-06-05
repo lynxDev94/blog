@@ -14,34 +14,9 @@ import {
 import { cn } from "@/lib/utils";
 import { Icons } from "./icons";
 import { ModeToggle } from "./mode-toggle";
+import { POSTS } from "@/lib/constants";
 
-const posts: { title: string; href: string; description: string }[] = [
-  {
-    title: "React",
-    href: "/blog/react",
-    description: "Learn React.",
-  },
-  {
-    title: "Javascript",
-    href: "/blog/javascript",
-    description: "Learn React.",
-  },
-  {
-    title: "CSS",
-    href: "/blog/css",
-    description: "Learn React.",
-  },
-  {
-    title: "Performance",
-    href: "/blog/performance",
-    description: "Learn React.",
-  },
-  {
-    title: "Career",
-    href: "/blog/career",
-    description: "Learn React.",
-  },
-];
+
 
 export default function MainNav({className}: {className? : string}) {
   return (
@@ -94,7 +69,7 @@ export default function MainNav({className}: {className? : string}) {
             <NavigationMenuTrigger>Posts</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                {posts.map((post) => (
+                {POSTS.map((post) => (
                   <ListItem
                     key={post.title}
                     title={post.title}

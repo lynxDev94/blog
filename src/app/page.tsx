@@ -2,6 +2,7 @@ import LatestPosts from "@/components/home/latest-posts";
 import Container from "@/components/ui/Container";
 import MainNav from "@/components/ui/main-nav";
 import TopCategories from "@/components/home/top-categories"
+import PopularPosts from "@/components/home/popular-posts";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
         </div>
         <div className="mt-10 sticky top-0">
             <h1 className="font-bold mb-4">POPULAR POSTS</h1>
-          {/* <PopularPosts/> */}
+          <PopularPosts/>
         </div>
        </div>
       </main>
