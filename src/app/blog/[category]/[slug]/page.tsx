@@ -5,6 +5,7 @@ import Header from "@/components/ui/Header";
 import Container from "@/components/ui/Container";
 import { BreadCrumbMain } from "@/components/ui/BreadcrumbMain";
 import { CustomMDX } from "@/components/CustomMDX";
+import ReportViews from "@/components/ReportsViews";
 
 // this makes it statically generated
 export async function generateStaticParams() {
@@ -23,13 +24,13 @@ async function Page({
   const { slug } = await params;
 
   const post = getBlogPosts().find((post) => post.slug === slug);
-  console.log(post);
   if (!post) {
     notFound();
   }
 
   return (
     <>
+    <ReportViews slug={post.slug} title={post.metaData.title} category={post.metaData.category}/>
       <Header>
         <Container>
           <BreadCrumbMain category={post.metaData.category} slug={post.slug} />
