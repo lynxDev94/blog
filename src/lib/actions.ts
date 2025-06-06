@@ -1,24 +1,24 @@
 "use server";
-import { db } from '@/db';
-import { revalidatePath } from 'next/cache';
-import {z} from 'zod';
+// import { db } from '@/db';
+// import { revalidatePath } from 'next/cache';
+// import {z} from 'zod';
 // import { PrismaClient } from '@prisma/client';
 
 
-const FormSchema = z.object({
-    id: z.number(),
-    email: z.string().min(1,{message: "Email is required"}),
-    isSubscribed: z.boolean()
-})
+// const FormSchema = z.object({
+//     id: z.number(),
+//     email: z.string().min(1,{message: "Email is required"}),
+//     isSubscribed: z.boolean()
+// })
 
-const CreateSubscriber = FormSchema.omit({id: true, isSubscribed: true});
+// const CreateSubscriber = FormSchema.omit({id: true, isSubscribed: true});
 
-type State = {
-    errors?: {
-        email?:  string[],
-    },
-    message?: string | null
-}
+// type State = {
+//     errors?: {
+//         email?:  string[],
+//     },
+//     message?: string | null
+// }
 
 // export async function createSubscriber(prevState: State, formData: FormData) {
 //     const validatedField = CreateSubscriber.safeParse({
