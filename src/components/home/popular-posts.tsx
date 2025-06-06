@@ -7,12 +7,13 @@ import useSWR from 'swr'
 
 import { fetcher, fetchUrl } from "@/lib/utils";
 import Link from "next/link";
+import { SkeletonCard } from "../skeleton/popular_posts_skeleton";
 
 function PopularPosts() {
   const { data, error, isLoading } = useSWR(fetchUrl, fetcher);
 
   if (error) return <div>Failed to load... </div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <SkeletonCard/>
 
   return (
     <ul className="overflow-auto">
