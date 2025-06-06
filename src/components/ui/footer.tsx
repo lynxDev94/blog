@@ -4,6 +4,7 @@ import { Icons } from "./icons";
 import Link from "next/link";
 import { Input } from "./input";
 import { Button } from "./button";
+import { createSubscriber } from "@/lib/actions";
 
 export default function Footer() {
   return (
@@ -88,14 +89,15 @@ export default function Footer() {
             <p className="text-gray-500 dark:text-gray-400 text-sm">
               Will be added soon! 
             </p>
-            <form>
+            <form action={createSubscriber}>
               <div className="flex space-x-2">
                 <Input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
                   className="flex-1"
                 />
-                <Button disabled>Subscribe</Button>
+                <Button>Subscribe</Button>
               </div>
             </form>
           </div>
