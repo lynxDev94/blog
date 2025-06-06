@@ -5,8 +5,11 @@ import Link from "next/link";
 import { Input } from "./input";
 import { Button } from "./button";
 import { createSubscriber } from "@/lib/actions";
+import { useFormState } from "react-dom";
 
 export default function Footer() {
+  const initialState = { message: "", errors: {}}
+  const [dispatch, state ] = useFormState(createSubscriber, initialState);
   return (
     <footer className="bg-gray-100 py-8 dark:bg-gray-800 mt-10">
       <div className="container mx-auto px-4 md:px-6">
@@ -97,7 +100,7 @@ export default function Footer() {
                   placeholder="Enter your email"
                   className="flex-1"
                 />
-                <Button>Subscribe</Button>
+                <Button disabled>Subscribe</Button>
               </div>
             </form>
           </div>
