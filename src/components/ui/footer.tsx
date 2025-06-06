@@ -4,12 +4,12 @@ import { Icons } from "./icons";
 import Link from "next/link";
 import { Input } from "./input";
 import { Button } from "./button";
-import { createSubscriber } from "@/lib/actions";
-import { useFormState } from "react-dom";
+// import { createSubscriber } from "@/lib/actions";
+// import { useFormState } from "react-dom";
 
 export default function Footer() {
-  const initialState = { message: "", errors: {}}
-  const [dispatch, state ] = useFormState(createSubscriber, initialState);
+  // const initialState = { message: "", errors: {}}
+  // const [dispatch, state ] = useFormState(createSubscriber, initialState);
   return (
     <footer className="bg-gray-100 py-8 dark:bg-gray-800 mt-10">
       <div className="container mx-auto px-4 md:px-6">
@@ -92,7 +92,8 @@ export default function Footer() {
             <p className="text-gray-500 dark:text-gray-400 text-sm">
               Will be added soon! 
             </p>
-            <form action={createSubscriber}>
+            {/* for newsLetter later on action={createSubscriber} */}
+            <form >
               <div className="flex space-x-2">
                 <Input
                   type="email"
